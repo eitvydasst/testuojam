@@ -1,0 +1,24 @@
+.hero {
+    background-image: url('https://i1.adis.ws/i/canon/get-inspired-seven-day-photo-challenge-1-16.9_00886ba47f71450aab6a85959698b32d?$hero-header-half-16by9-dt-jpg$');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+  }
+  #imageCarousel {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+.carousel-inner img {
+    width: 800px;
+    height: 450px;
+    object-fit: cover;
+  }
+.card-title {
+    text-align: center;
+  }
+.card-img-top {
+    object-fit: cover;
+  }
+   
