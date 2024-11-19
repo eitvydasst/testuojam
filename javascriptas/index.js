@@ -145,26 +145,31 @@
 // console.log('Petro KMI yra: ${KmiPetro.toFixed(2)}');
 // console.log('Jono KMI yra: ${KmiJono.toFixed(2)}');
 
- ////// užduotys 
-let text = "HelloWorld"; 
-if (text.length > 5) {
-    console.log("Tekstas yra ilgesnis nei 5 simboliai.");
-} else {
-    console.log("Tekstas yra 5 ar mažiau simbolių ilgio.");
-}
+ import countries from './countries.js';
 
-let number = -10;
-if (number > 0) {
-    console.log("Skaičius yra teigiamas.");
-} else if (number < 0) {
-    console.log("Skaičius yra neigiamas.");
-} else {
-    console.log("Skaičius yra nulis.");
-}
+ function updateLocalStorage(){
+    const existingData = localStorage.getItem("countries");
+    if (!existingData) {
+        const newData = countries.map((country, index) =>(
+        ({ countryNum: index +1,
+            countryName: country.name?.common || "data not found",
+            capital:country.capital?.[0] || "data not found"
+        })));
+        localStorage.setItem("countries", JSON.stringify(newData));
 
-let side1 = parseFloat(prompt("Įveskite pirmos kraštinės ilgį:"));
-let side2 = parseFloat(prompt("Įveskite antros kraštinės ilgį:"));
-let side3 = parseFloat(prompt("Įveskite trečios kraštinės ilgį:"));
+    } else {
+        console.log("Salys jau egzistuoja LS");
+    }
+ }
 
-let perimeter = side1 + side2 + side3;
-alert("Trikampio perimetras yra: " + perimeter);
+ function showData() {
+    const storedData = localStorage.getItem("countries");
+    if (storedData) {
+        const parsinam = JSON.parse(storedData);
+        console.log("Turima informacija apie salis", parsinam);
+    } 
+    else {
+        console.log("Data n/a in LS");
+    }
+ }
+ updateLocalStorage();
